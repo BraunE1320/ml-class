@@ -15,8 +15,13 @@ from plotutil import PlotCallback
 wandb.init()
 config = wandb.config
 
+<<<<<<< dd0d09abdb3fc4c5d5512738c60354db5fe3ad82
 config.repeated_predictions = False
 config.look_back = 25
+=======
+config.repeated_predictions = True
+config.look_back = 4
+>>>>>>> translation in lstm
 
 def load_data(data_type="airline"):
     if data_type == "flu":
@@ -59,9 +64,19 @@ testX = testX[:, :, np.newaxis]
 
 # create and fit the RNN
 model = Sequential()
+<<<<<<< dd0d09abdb3fc4c5d5512738c60354db5fe3ad82
 model.add(SimpleRNN(7, input_shape=(config.look_back,1 )))
 model.add(Dense(7, activation="tanh"))
 model.add(Dense(1, activation="sigmoid"))
 model.compile(loss='mse', optimizer='adam')
 model.fit(trainX, trainY, epochs=500, batch_size=30, validation_data=(testX, testY),  callbacks=[WandbCallback(), PlotCallback(trainX, trainY, testX, testY, config.look_back)])
+=======
+model.add(SimpleRNN(1, input_shape=(config.look_back,1 )))
+model.compile(loss='mae', optimizer='rmsprop')
+model.fit(trainX, trainY, epochs=1000, batch_size=20, validation_data=(testX, testY),  callbacks=[WandbCallback(), PlotCallback(trainX, trainY, testX, testY, config.look_back)])
+
+
+
+
+>>>>>>> translation in lstm
 
