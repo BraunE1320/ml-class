@@ -2,6 +2,7 @@ import imdb
 import numpy as np
 from keras.models import Sequential
 from keras.preprocessing import text
+<<<<<<< 90da4f70b2afd5f40e0597a02c23d04078d5e12b
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dropout, Dense, Flatten
 from keras.layers import Flatten, Dense, Dropout
